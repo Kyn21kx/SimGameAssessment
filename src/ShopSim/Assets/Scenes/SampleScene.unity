@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 1751184607}
   m_speed: 100
+  m_runningSpeed: 200
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
