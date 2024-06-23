@@ -1,0 +1,10 @@
+﻿/// THIS FILE WAS REUSED FROM OTHER PROJECTS.
+/// ALL IMPLEMENTATIONS ARE MY OWN UNLESS CITED THE CONTRARY.
+
+namespace Auxiliars {
+	enum UpdateModes {
+		FIXED,
+		FRAMED,
+		LATE
+	}
+}
