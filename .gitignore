@@ -1,0 +1,40 @@
+# Unity-specific files and directories
+src/*/[Bb]uild/
+src/*/[Ll]ibrary/
+src/*/[Ll]ogs/
+src/*/[Oo]bj/
+src/*/[Tt]emp/
+src/*/[Uu]ser[Ss]ettings/
+# Visual Studio Code specific files
+.vscode/
+
+# Compiled files
+*.sln
+*.csproj
+	*.suo
+*.user
+*.unityproj
+*.dll
+*.exe
+
+# Package files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+.fseventsd
+

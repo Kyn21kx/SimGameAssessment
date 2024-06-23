@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{C3230E84-4E9A-1FA6-E2E4-F9FFE7105E7B}|">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1336fdf1-1bd9-4637-955f-058ad151d7db" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/PlayerInteractable.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Player/MovementController.cs" Line="61" Column="6" />
+      <File FileName="Assets/ThirdParty/Cainos/Customizable Pixel Character/Script/PixelCharacterController.cs" Line="219" Column="20" />
+      <File FileName="Assets/ThirdParty/Cainos/Customizable Pixel Character/Script/PixelCharacter.cs" Line="93" Column="9" />
+      <File FileName="Assets/Scripts/Player/Movement/NewEnumeration.cs" Line="1" Column="34" />
+      <File FileName="Assets/Scripts/Shared/NewClass.cs" Line="4" Column="1" />
+      <File FileName="Assets/Scripts/Environment/NewClass.cs" Line="21" Column="6" />
+      <File FileName="Assets/Scripts/Shared/NewClass.cs" Line="5" Column="50" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ShopSim">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Environment" expanded="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
