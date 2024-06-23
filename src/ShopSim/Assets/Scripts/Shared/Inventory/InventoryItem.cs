@@ -11,6 +11,12 @@ public enum ItemType
     Other
 }
 
+public enum ItemOwner
+{
+    Player,
+    Shopkeeper
+}
+
 [Serializable]
 public class InventoryItem
 {
@@ -23,4 +29,6 @@ public class InventoryItem
     public int m_count = 1;
 
     public ItemType m_type;
+
+    public ItemOwner m_owner;
 }
