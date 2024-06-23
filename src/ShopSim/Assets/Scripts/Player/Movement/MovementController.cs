@@ -12,13 +12,20 @@ public class MovementController : MonoBehaviour
     private Animator m_animator;
     [SerializeField]
     private float m_speed;
+    [SerializeField]
+    private float m_runningSpeed;
 
+    private bool m_isRunning;
     private Rigidbody2D m_rig;
     private Vector2 m_movementInput;
 
     private void Start()
     {
         Assert.IsNotNull(this.m_animator, "The animator must be set through the editor!");
+        Assert.IsTrue(
+            this.m_runningSpeed > this.m_speed,
+            "The running speed is not bigger than the walking speed, this may lead to unexpected behaviour"
+        );
         this.m_rig = GetComponent<Rigidbody2D>();
     }
 
@@ -31,7 +38,8 @@ public class MovementController : MonoBehaviour
     {
         //Note: Fixed delta time is unnecessary since, well, it's fixed
         //however, added it to be able to change it in the future (hypotheticalxw)
-        this.MoveTowards(this.m_movementInput, this.m_speed, Time.fixedDeltaTime);
+        float speedToUse = this.m_isRunning ? this.m_runningSpeed : this.m_speed;
+        this.MoveTowards(this.m_movementInput, speedToUse, Time.fixedDeltaTime);
     }
 
     private void MoveTowards(Vector2 direction, float speed, float timeStep)
@@ -71,5 +79,6 @@ public class MovementController : MonoBehaviour
             Input.GetAxisRaw(HORIZONTAL_AXIS),
             Input.GetAxisRaw(VERTICAL_AXIS)
         );
+        this.m_isRunning = Input.GetKey(KeyCode.LeftShift);
     }
 }

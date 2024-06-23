@@ -1,0 +1,4 @@
+Used third party assets:
+
+- https://unityassetpack.com/customizable-pixel-character/
+- https://dreammix.itch.io/keyboard-keys-for-ui/download/eyJleHBpcmVzIjoxNzE5MTI3ODE3LCJpZCI6MTUwMjU1MH0%3d%2e8XfeRng%2bAsR0qfofuTUgigcncxo%3d
