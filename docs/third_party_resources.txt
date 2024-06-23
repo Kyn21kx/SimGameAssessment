@@ -2,3 +2,5 @@ Used third party assets:
 
 - https://unityassetpack.com/customizable-pixel-character/
 - https://dreammix.itch.io/keyboard-keys-for-ui/download/eyJleHBpcmVzIjoxNzE5MTI3ODE3LCJpZCI6MTUwMjU1MH0%3d%2e8XfeRng%2bAsR0qfofuTUgigcncxo%3d
+- https://elvgames.itch.io/free-inventory-for-rpg-or-farming-games/download/eyJpZCI6MTYzOTA5NiwiZXhwaXJlcyI6MTcxOTE1MzY0N30%3d%2eoCc9cQDMCRu4JTmu%2bmaHqgXShiA%3d
+- https://limezu.itch.io/moderninteriors/download/eyJleHBpcmVzIjoxNzE5MTI4NTUxLCJpZCI6NjcxNzUxfQ%3d%3d%2eRbMgka8rxrwxRBG0dFoWQ%2fYziNk%3d
