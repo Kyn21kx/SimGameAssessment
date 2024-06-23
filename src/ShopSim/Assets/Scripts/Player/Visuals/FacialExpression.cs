@@ -4,6 +4,7 @@
     Happy,
     Dead,
     Shocked,
+    HappyVariant,
     Sad,
     Shy,
     Sick,

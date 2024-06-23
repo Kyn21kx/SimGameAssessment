@@ -46,7 +46,6 @@ public class TypeMatchingController : MonoBehaviour
         {
             return;
         }
-        this.HandleLostAttemptFx();
         this.MiniGameLoop();
     }
 
@@ -55,6 +54,8 @@ public class TypeMatchingController : MonoBehaviour
         float elapsed = this.m_wordInputTimer.GetCurrentTime(TimeScaleMode.Seconds);
         if (elapsed >= this.m_maxWordInputTime)
         {
+            this.HandleLostAttemptFx();
+            this.m_loadedWord = this.FetchRandomWord();
             this.m_wordInputTimer.Reset();
             this.m_maxWordInputTime -= Random.Range(0.1f, 0.5f);
             SpartanMath.Clamp(ref this.m_maxWordInputTime, 1f, float.MaxValue);
@@ -89,6 +90,8 @@ public class TypeMatchingController : MonoBehaviour
     private void HandleLostAttemptFx()
     {
         //Send camera shake and a small audio cue
+        EntityFetcher.s_CameraActions.SendCameraShake(0.1f, 1f);
+        EntityFetcher.s_PlayerExpressions.TryEnqueueExpression(FacialExpression.Sad);
     }
 
     private string FetchRandomWord()

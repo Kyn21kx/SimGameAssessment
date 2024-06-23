@@ -544,8 +544,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_displayWordText: {fileID: 765925466}
-  m_maxWordInputTime: 10
+  m_maxWordInputTime: 5
   m_radialSpriteRenderer: {fileID: 406964952}
+  m_attempts: 0
 --- !u!1 &617640522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1318,8 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194230}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194232}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1434,6 +1437,33 @@ MonoBehaviour:
   shouldRecenter: 1
   recenterTime: 1
   distance: 1
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f34b3655ca2b4f9abc76eb72e5b61e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &963194232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfcfe428fe5d46a287b371435e566db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0
+  shakeAmount: 0.7
+  decreaseFactor: 1
 --- !u!1 &1395978358
 GameObject:
   m_ObjectHideFlags: 0

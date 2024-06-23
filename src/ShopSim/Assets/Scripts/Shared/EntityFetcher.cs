@@ -8,5 +8,7 @@ public static class EntityFetcher
 
     public static PlayerExpressions s_PlayerExpressions { get; set; }
 
+    public static CameraActions s_CameraActions { get; set; }
+
 }
 

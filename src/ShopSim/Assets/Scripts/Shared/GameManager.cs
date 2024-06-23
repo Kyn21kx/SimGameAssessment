@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         EntityFetcher.s_Player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
         EntityFetcher.s_MainCamera = Camera.main;
         EntityFetcher.s_PlayerExpressions = EntityFetcher.s_Player.GetComponent<PlayerExpressions>();
+        EntityFetcher.s_CameraActions = EntityFetcher.s_MainCamera.GetComponent<CameraActions>();
     }
 }
 
