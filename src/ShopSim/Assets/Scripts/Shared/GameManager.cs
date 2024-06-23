@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        EntityFetcher.Player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
-        EntityFetcher.MainCamera = Camera.main;
+        EntityFetcher.s_Player = GameObject.FindGameObjectWithTag(PLAYER_TAG);
+        EntityFetcher.s_MainCamera = Camera.main;
+        EntityFetcher.s_PlayerExpressions = EntityFetcher.s_Player.GetComponent<PlayerExpressions>();
     }
 }
 

@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{C3230E84-4E9A-1FA6-E2E4-F9FFE7105E7B}|">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Shared/Inventory/NewClass.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Environment/PlayerInteractable.cs" Line="51" Column="46" />
+      <File FileName="Assets/Scripts/Player/Movement/FacingDirection.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/Movement/MovementController.cs" Line="34" Column="28" />
+      <File FileName="Assets/Scripts/Shared/NewMonoBehaviour.cs" Line="12" Column="25" />
+      <File FileName="Assets/Scripts/Shared/Auxiliars/SpartanMath.cs" Line="168" Column="6" />
+      <File FileName="Assets/Scripts/Environment/IInteractable.cs" Line="7" Column="26" />
+      <File FileName="Assets/Scripts/Player/NewClass.cs" Line="23" Column="70" />
+      <File FileName="Assets/Scripts/Shared/EntityFetcher.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/Player/Visuals/NewEnumeration.cs" Line="4" Column="11" />
+      <File FileName="Assets/Scripts/Shared/Inventory/NewMonoBehaviour.cs" Line="4" Column="27" />
+      <File FileName="Assets/Scripts/Shared/Inventory/NewClass.cs" Line="2" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ShopSim" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Environment" expanded="True" />
+                <Node name="Player" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="Inventory" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>filesToSearch.Length</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2c2af328-1e8c-4f1c-b0cf-9a2b03e649e3" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

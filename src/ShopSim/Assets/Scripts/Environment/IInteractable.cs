@@ -4,6 +4,8 @@
 
     void PromptInteraction();
 
+    void DisablePrompt();
+
     void Interact();
 }
 
