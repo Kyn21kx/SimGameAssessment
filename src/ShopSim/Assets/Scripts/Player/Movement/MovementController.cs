@@ -8,6 +8,8 @@ public class MovementController : MonoBehaviour
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string VERTICAL_AXIS = "Vertical";
 
+    public bool CanMove { get; set; } = true;
+
     [SerializeField]
     private Animator m_animator;
     [SerializeField]
@@ -37,9 +39,16 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         //Note: Fixed delta time is unnecessary since, well, it's fixed
-        //however, added it to be able to change it in the future (hypotheticalxw)
-        float speedToUse = this.m_isRunning ? this.m_runningSpeed : this.m_speed;
+        //however, added it to be able to change it in the future (hypothetical)
+        float speedToUse = this.GetMoveSpeedByState();
         this.MoveTowards(this.m_movementInput, speedToUse, Time.fixedDeltaTime);
+    }
+
+    private float GetMoveSpeedByState()
+    {
+        if (!this.CanMove) return 0f;
+        if (this.m_isRunning) return this.m_runningSpeed;
+        return this.m_speed;
     }
 
     private void MoveTowards(Vector2 direction, float speed, float timeStep)
@@ -58,7 +67,7 @@ public class MovementController : MonoBehaviour
 
     private void FaceTowards(FacingDirection direction)
     {
-        if (direction == FacingDirection.None) return;
+        if (direction == FacingDirection.None || !this.CanMove) return;
         const float offsetChangeFactor = 0.064f; // This value comes from the animation asset pack we got c:
         float parsedDirection = (float)direction;
         this.m_animator.transform.localScale = new Vector3(1f, 1f, parsedDirection);

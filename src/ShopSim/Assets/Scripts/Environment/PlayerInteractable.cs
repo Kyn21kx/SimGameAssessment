@@ -37,6 +37,10 @@ public class PlayerInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        this.m_isBeingInteractedWith = true;
+        //TODO: Maybe set this on the actual callback, idk
+        var movementRef = EntityFetcher.s_Player.GetComponent<MovementController>();
+        movementRef.CanMove = false;
         this.onInteraction.Invoke(this);
     }
 
@@ -44,6 +48,11 @@ public class PlayerInteractable : MonoBehaviour, IInteractable
     {
         this.m_promptObject.SetActive(true);
         EntityFetcher.s_PlayerExpressions.TryEnqueueExpression(FacialExpression.Shocked);
+        if (Input.GetKeyDown(this.m_interactionKey))
+        {
+            this.DisablePrompt();
+            this.Interact();
+        }
     }
 
     public void DisablePrompt()
