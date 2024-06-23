@@ -80,4 +80,11 @@ public class PlayerInteractable : MonoBehaviour, IInteractable
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.transform.position, this.m_interactionRadius);
     }
+
+    public void CompleteInteraction()
+    {
+        this.m_isBeingInteractedWith = false;
+        var movementRef = EntityFetcher.s_Player.GetComponent<MovementController>();
+        movementRef.CanMove = true;
+    }
 }

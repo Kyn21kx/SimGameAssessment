@@ -1,4 +1,6 @@
-﻿public interface IInteractable
+﻿using UnityEngine.Events;
+
+public interface IInteractable
 {
     bool IsBeingInteractedWith { get; } //Naming is hard :c
 
@@ -7,5 +9,7 @@
     void DisablePrompt();
 
     void Interact();
+
+    void CompleteInteraction();
 }
 
