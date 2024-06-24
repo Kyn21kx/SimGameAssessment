@@ -7,6 +7,7 @@ using UnityEngine;
 public class TypeMatchingController : MonoBehaviour
 {
     private const string WORD_LIST_PATH = "RandomWords/WordList";
+    private const string SHADER_RADIAL_PROP_NAME = "_Arc1";
     //Make a timer so that they have to input the word before it runs out
 
     private string[] m_loadedWords;
@@ -65,12 +66,16 @@ public class TypeMatchingController : MonoBehaviour
 
         if (this.m_forgivenessTimer.Started && this.m_forgivenessTimer.CurrentTimeMS < 2500f)
         {
+            this.m_wordInputTimer.Stop();
             return;
         }
+
         if (!this.m_wordInputTimer.Started)
         {
+            this.m_maxWordInputTime = this.m_initialMaxTime;
             this.m_wordInputTimer.Reset();
         }
+
         this.m_displayWordText.color = Color.white;
         this.m_displayWordText.text = this.m_loadedWord;
         this.MiniGameLoop();
@@ -121,10 +126,10 @@ public class TypeMatchingController : MonoBehaviour
 
     private void TimerFx(float elapsed)
     {
-        const string shaderRadialPropertyName = "_Arc1";
+        
         const float radialMaxAmount = 360f;
         float fillAmount = (elapsed / this.m_maxWordInputTime) * radialMaxAmount;
-        this.m_radialSpriteRenderer.material.SetFloat(shaderRadialPropertyName, fillAmount);
+        this.m_radialSpriteRenderer.material.SetFloat(SHADER_RADIAL_PROP_NAME, fillAmount);
     }
 
     public void StartGame()
@@ -136,7 +141,7 @@ public class TypeMatchingController : MonoBehaviour
         this.m_matchingWordText.gameObject.SetActive(true);
         this.m_matchingWordText.text = string.Empty;
         this.m_attempts = this.m_initialAttempts;
-        this.m_maxWordInputTime = this.m_initialMaxTime;
+        this.m_radialSpriteRenderer.material.SetFloat(SHADER_RADIAL_PROP_NAME, 0f);
         this.m_isRunning = true;
     }
 
@@ -176,6 +181,7 @@ public class TypeMatchingController : MonoBehaviour
     {
         EntityFetcher.s_PlayerExpressions.TryEnqueueExpression(FacialExpression.Happy);
         //Score
+        ScoringManager.s_Money += Random.Range(10, 26);
     }
 
     private string FetchRandomWord()
