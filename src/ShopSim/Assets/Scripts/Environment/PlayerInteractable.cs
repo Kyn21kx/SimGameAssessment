@@ -1,4 +1,6 @@
-﻿using Auxiliars;
+﻿using System.Linq;
+using Auxiliars;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
@@ -14,13 +16,13 @@ public class PlayerInteractable : MonoBehaviour, IInteractable
     private GameObject m_promptObject;
 
     [SerializeField]
-    private KeyCode m_interactionKey;
+    private KeyCode[] m_interactionKeys;
 
     [SerializeField]
     private bool m_showGizmos;
 
     [SerializeField]
-    UnityEvent<IInteractable> onInteraction;
+    UnityEvent<KeyCode> onInteraction;
 
     private bool m_isBeingInteractedWith;
 
@@ -35,23 +37,34 @@ public class PlayerInteractable : MonoBehaviour, IInteractable
         this.DetectPlayer();
     }
 
-    public void Interact()
+    public void Interact(KeyCode triggerKeyCode)
     {
         this.m_isBeingInteractedWith = true;
         //TODO: Maybe set this on the actual callback, idk
         var movementRef = EntityFetcher.s_Player.GetComponent<MovementController>();
         movementRef.CanMove = false;
-        this.onInteraction.Invoke(this);
+        this.onInteraction.Invoke(triggerKeyCode);
     }
 
     public void PromptInteraction()
     {
         this.m_promptObject.SetActive(true);
         EntityFetcher.s_PlayerExpressions.TryEnqueueExpression(FacialExpression.Shocked);
-        if (Input.GetKeyDown(this.m_interactionKey))
+        KeyCode resultingKey = KeyCode.None;
+        //Get the first out of the possible keys
+        foreach (var keyCode in this.m_interactionKeys)
+        {
+            if (Input.GetKeyDown(keyCode))
+            {
+                resultingKey = keyCode;
+                break;
+            }
+        }
+
+        if (resultingKey != KeyCode.None)
         {
             this.DisablePrompt();
-            this.Interact();
+            this.Interact(resultingKey);
         }
     }
 
@@ -86,5 +99,16 @@ public class PlayerInteractable : MonoBehaviour, IInteractable
         this.m_isBeingInteractedWith = false;
         var movementRef = EntityFetcher.s_Player.GetComponent<MovementController>();
         movementRef.CanMove = true;
+    }
+
+    public void SetInteractionText(string text)
+    {
+        var textRef = this.m_promptObject.GetComponentInChildren<TextMeshPro>();
+        textRef.text = text;
+    }
+
+    public void SetInteractionKeys(KeyCode[] keys)
+    {
+        this.m_interactionKeys = keys;
     }
 }

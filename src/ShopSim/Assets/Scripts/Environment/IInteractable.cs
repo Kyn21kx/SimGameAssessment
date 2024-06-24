@@ -1,4 +1,5 @@
-﻿using UnityEngine.Events;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public interface IInteractable
 {
@@ -8,7 +9,11 @@ public interface IInteractable
 
     void DisablePrompt();
 
-    void Interact();
+    void Interact(KeyCode triggerKey);
+
+    void SetInteractionText(string text);
+
+    void SetInteractionKeys(KeyCode[] keys);
 
     void CompleteInteraction();
 }

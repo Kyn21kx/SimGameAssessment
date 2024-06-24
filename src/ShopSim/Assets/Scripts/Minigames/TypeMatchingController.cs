@@ -56,13 +56,14 @@ public class TypeMatchingController : MonoBehaviour
 
     private void Update()
     {
+        GameManager.s_IsInMiniGame = this.m_isRunning;
         if (!this.m_isRunning)
         {
             return;
         }
 
         this.m_displayWordText.text = "Match the words appearing on screen...\nGet Ready!";
-        this.m_displayWordText.color = Color.blue;
+        this.m_displayWordText.color = Color.yellow;
 
         if (this.m_forgivenessTimer.Started && this.m_forgivenessTimer.CurrentTimeMS < 2500f)
         {
@@ -77,6 +78,7 @@ public class TypeMatchingController : MonoBehaviour
         }
 
         this.m_displayWordText.color = Color.white;
+        this.m_displayWordText.outlineColor = Color.black;
         this.m_displayWordText.text = this.m_loadedWord;
         this.MiniGameLoop();
     }
@@ -86,6 +88,7 @@ public class TypeMatchingController : MonoBehaviour
         this.m_forgivenessTimer.Stop();
         MatchInputResult matchResult = this.HandleTypingInput();
         float elapsed = this.m_wordInputTimer.GetCurrentTime(TimeScaleMode.Seconds);
+
         if (matchResult == MatchInputResult.Failed || elapsed >= this.m_maxWordInputTime)
         {
             this.HandleLostAttemptFx();

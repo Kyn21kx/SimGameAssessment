@@ -1,30 +1,37 @@
 ﻿<Properties StartupConfiguration="{C3230E84-4E9A-1FA6-E2E4-F9FFE7105E7B}|">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Shared/Auxiliars/Camera/CameraShake.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Environment/PlayerInteractable.cs">
     <Files>
-      <File FileName="Assets/Scripts/Environment/PlayerInteractable.cs" Line="9" Column="1" />
+      <File FileName="Assets/Scripts/Environment/PlayerInteractable.cs" Line="105" Column="1" />
       <File FileName="Assets/Scripts/Player/Movement/FacingDirection.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Player/Movement/MovementController.cs" Line="15" Column="21" />
-      <File FileName="Assets/Scripts/Shared/NewMonoBehaviour.cs" Line="14" Column="41" />
-      <File FileName="Assets/Scripts/Environment/IInteractable.cs" Line="13" Column="32" />
+      <File FileName="Assets/Scripts/Shared/NewMonoBehaviour.cs" Line="9" Column="18" />
+      <File FileName="Assets/Scripts/Environment/IInteractable.cs" Line="4" Column="18" />
       <File FileName="Assets/Scripts/Player/NewClass.cs" Line="54" Column="1" />
-      <File FileName="Assets/Scripts/Shared/EntityFetcher.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/Player/Visuals/NewEnumeration.cs" Line="4" Column="11" />
-      <File FileName="Assets/Scripts/Shared/Inventory/NewMonoBehaviour.cs" Line="86" Column="26" />
-      <File FileName="Assets/Scripts/Shared/Inventory/NewClass.cs" Line="34" Column="2" />
+      <File FileName="Assets/Scripts/Shared/EntityFetcher.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/Player/Visuals/NewEnumeration.cs" Line="10" Column="10" />
+      <File FileName="Assets/Scripts/Shared/Inventory/NewMonoBehaviour.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/Shared/Inventory/NewClass.cs" Line="21" Column="14" />
       <File FileName="Assets/Scripts/Environment/RewardController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Shopkeeper/NewMonoBehaviour.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/Shared/Inventory/NewMonoBehaviour.cs" Line="16" Column="27" />
-      <File FileName="Assets/Minigames/TypeMatchingController.cs" Line="91" Column="23" />
-      <File FileName="Assets/Resources/RandomWords/NewFile.txt" Line="12" Column="6" />
-      <File FileName="Assets/Resources/RandomWords/NewFile.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shopkeeper/NewMonoBehaviour.cs" Line="24" Column="6" />
+      <File FileName="Assets/Scripts/Shared/Inventory/NewMonoBehaviour.cs" Line="48" Column="21" />
+      <File FileName="Assets/Minigames/TypeMatchingController.cs" Line="19" Column="21" />
+      <File FileName="Assets/Resources/RandomWords/NewFile.txt" Line="220" Column="4" />
       <File FileName="Assets/Scripts/Shared/Auxiliars/SpartanTimer.cs" Line="31" Column="1" />
-      <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/CameraFollow.cs" Line="2" Column="62" />
+      <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/CameraFollow.cs" Line="57" Column="25" />
       <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/SpartanCamera.cs" Line="2" Column="62" />
       <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/UpdateModes.cs" Line="8" Column="7" />
       <File FileName="Assets/ThirdParty/Shaders/RadialFill.shader" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/NewClass.cs" Line="6" Column="5" />
+      <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/NewClass.cs" Line="12" Column="30" />
+      <File FileName="Assets/Scripts/Shared/Auxiliars/SpartanMath.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shared/Auxiliars/Camera/NewMonoBehaviour.cs" Line="11" Column="62" />
+      <File FileName="Assets/Resources/RandomWords/WordList.txt" Line="309" Column="6" />
+      <File FileName="Assets/Scripts/Minigames/NewEnumeration.cs" Line="1" Column="21" />
+      <File FileName="Assets/Scripts/Minigames/NewMonoBehaviour.cs" Line="7" Column="49" />
+      <File FileName="Assets/Scripts/Player/Inventory/PlayerInventoryController.cs" Line="17" Column="10" />
+      <File FileName="Assets/Scripts/Shared/Inventory/TransactionManager.cs" Line="11" Column="6" />
+      <File FileName="Assets/Scripts/Shopkeeper/NewEnumeration.cs" Line="6" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,22 +42,19 @@
                 <Node name="RandomWords" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Environment" expanded="True" />
+                <Node name="Environment" expanded="True">
+                  <Node name="PlayerInteractable.cs" selected="True" />
+                </Node>
                 <Node name="Minigames" expanded="True" />
                 <Node name="Player" expanded="True">
-                  <Node name="Movement" expanded="True" />
-                  <Node name="Visuals" expanded="True" />
-                </Node>
-                <Node name="Shared" expanded="True">
-                  <Node name="Auxiliars" expanded="True">
-                    <Node name="Camera" expanded="True" />
-                  </Node>
                   <Node name="Inventory" expanded="True" />
                 </Node>
+                <Node name="Shared" expanded="True">
+                  <Node name="Inventory" expanded="True" />
+                </Node>
+                <Node name="Shopkeeper" expanded="True" />
               </Node>
-              <Node name="ThirdParty" expanded="True">
-                <Node name="Shaders" expanded="True" />
-              </Node>
+              <Node name="ThirdParty" expanded="True" />
             </Node>
           </Node>
         </State>

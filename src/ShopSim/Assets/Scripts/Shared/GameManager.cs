@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool s_IsInMiniGame { get; set; }
+
     private const string PLAYER_TAG = "Player";
     /// <summary>
     /// Initialization of the game manager happens on awake
