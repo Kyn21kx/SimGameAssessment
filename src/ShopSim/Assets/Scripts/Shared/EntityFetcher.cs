@@ -10,5 +10,9 @@ public static class EntityFetcher
 
     public static CameraActions s_CameraActions { get; set; }
 
+    public static InventoryBag s_PlayerInventoryBag { get; set; }
+
+    public static InventoryBag s_ShopKeeperInventoryBag { get; set; }
+
 }
 

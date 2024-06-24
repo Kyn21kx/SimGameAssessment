@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+using UnityEngine.Assertions;
 
 /// <summary>
 /// UI component for the Inventory Item (with references to UI elements)
@@ -39,8 +41,22 @@ public class InventorySlotUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_countText;
 
+    [SerializeField]
+    private UnityEvent<InventoryBag, InventoryItem> m_onClickCallback;
+
     [SerializeField] //Serialize just for debug purposes
     private InventoryItem m_item;
+
+    public void OnSlotClick()
+    {
+        InventoryBag sourceBag = this.m_item.m_owner switch {
+           ItemOwner.Player => EntityFetcher.s_PlayerInventoryBag,
+           ItemOwner.Shopkeeper => EntityFetcher.s_ShopKeeperInventoryBag,
+           _ => throw new System.Exception($"Case not handled for owner {this.m_item.m_owner}")
+        };
+        Assert.IsNotNull(sourceBag, $"Inventory bag not found for the item {this.m_item.m_name} owner!");
+        this.m_onClickCallback.Invoke(sourceBag, this.m_item);
+    }
 
 }
 
