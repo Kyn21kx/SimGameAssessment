@@ -1,7 +1,6 @@
 ﻿potato
 perpetual
 screeching
-man
 advertisement
 grateful
 fanatical
@@ -11,7 +10,6 @@ erratic
 shape
 print
 meeting
-four
 steel
 standing
 weigh
@@ -34,7 +32,6 @@ charge
 dock
 crabby
 dime
-wry
 story
 wiry
 rampant
@@ -114,11 +111,7 @@ reduce
 bed
 wave
 nosy
-zoo
 hateful
-flaky
-work
-ear
 uneven
 cumbersome
 languid
@@ -257,7 +250,6 @@ business
 paper
 female
 admire
-way
 moor
 breezy
 opposite
@@ -282,7 +274,6 @@ scandalous
 steer
 humdrum
 action
-rot
 roll
 quartz
 amused
@@ -290,8 +281,6 @@ sidewalk
 roll
 curve
 absent
-test
-key
 wash
 handsomely
 wandering
@@ -380,7 +369,6 @@ regret
 soft
 profuse
 substance
-sip
 detect
 mammoth
 cloth
@@ -460,3 +448,12 @@ wire
 ruddy
 miss
 living
+wriggle
+writing
+class
+fang
+crack
+homely
+vacation
+hellish
+wretched

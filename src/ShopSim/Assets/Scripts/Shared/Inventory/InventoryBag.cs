@@ -61,7 +61,7 @@ public class InventoryBag : MonoBehaviour
         InventorySlotUI slot = Instantiate(this.m_slotPrefab, this.m_slotParent.transform);
         slot.Item = item;
         //Get the next available panel position and place the item there
-        int currPositionIndex = (this.m_items.Count - 1) % 10;
+        int currPositionIndex = (this.m_items.Count - 1) % 9;
 
         if (currPositionIndex == 0)
         {
@@ -85,7 +85,7 @@ public class InventoryBag : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             this.DismissInventory();
         }

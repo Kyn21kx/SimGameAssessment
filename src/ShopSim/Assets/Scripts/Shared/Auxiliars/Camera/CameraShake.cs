@@ -30,13 +30,13 @@ public class CameraShake : MonoBehaviour
         else
         {
             shakeDuration = 0f;
-            transform.localPosition = originalPos;
         }
     }
 
     public void Shake(float duration)
     {
         shakeDuration = duration;
+        this.originalPos = transform.localPosition;
     }
 
 }
