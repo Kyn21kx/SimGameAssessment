@@ -20,7 +20,7 @@ public class ScoringManager
         }
     }
 
-    private static int s_money = 7000;
+    private static int s_money = 0;
 
     private static TextMeshProUGUI s_displayMoneyText;
 
