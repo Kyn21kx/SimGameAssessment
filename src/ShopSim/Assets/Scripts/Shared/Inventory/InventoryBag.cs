@@ -12,7 +12,7 @@ public class InventoryBag : MonoBehaviour
     private const float SLOT_SPACING_Y = 400f;
 
     private const string PATH_TO_ITEM_SPRITES = "Cloth/";
-    private const string CLOTHING_PREFIX = "TX Pixel Character - Cloth - ";
+    public const string CLOTHING_PREFIX = "TX Pixel Character - Cloth - ";
 
     private Dictionary<string, InventoryItem> m_items;
     public bool IsShown => this.m_uiPanel.gameObject.activeInHierarchy;
@@ -33,6 +33,9 @@ public class InventoryBag : MonoBehaviour
     private UnityEvent<InventoryBag, InventoryItem> m_onClickCallback;
 
     private int m_lineIndex = 0;
+
+    //Hacky way of managing persistent counts, but it works
+    private int m_permanentCount = 0;
 
     private void Start()
     {
@@ -62,12 +65,13 @@ public class InventoryBag : MonoBehaviour
             return;
         }
         this.m_items[item.m_name] = item;
+        this.m_permanentCount++;
         //Instantiate the prefab for the next item
         InventorySlotUI slot = Instantiate(this.m_slotPrefab, this.m_slotParent.transform);
         slot.Item = item;
         slot.OnClickCallback = this.m_onClickCallback;
         //Get the next available panel position and place the item there
-        int currPositionIndex = (this.m_items.Count - 1) % 9;
+        int currPositionIndex = (this.m_permanentCount - 1) % 9;
 
         if (currPositionIndex == 0)
         {
@@ -82,6 +86,11 @@ public class InventoryBag : MonoBehaviour
     {
         InventoryItem item = this.GetFromInventoryOrDefault(itemName);
         item.m_count--;
+    }
+
+    public void RemoveFromInternalDictionary(string itemName)
+    {
+        this.m_items.Remove(itemName);
     }
 
     public InventoryItem GetFromInventoryOrDefault(string itemName)

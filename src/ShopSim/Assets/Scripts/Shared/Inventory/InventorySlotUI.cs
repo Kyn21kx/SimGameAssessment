@@ -80,6 +80,13 @@ public class InventorySlotUI : MonoBehaviour
         if (this.m_item.m_count <= 0)
         {
             //This will leave the inventory a little weirdly spaced out, but it's ok
+            InventoryBag sourceBag = this.m_item.m_owner switch
+            {
+                ItemOwner.Player => EntityFetcher.s_PlayerInventoryBag,
+                ItemOwner.Shopkeeper => EntityFetcher.s_ShopKeeperInventoryBag,
+                _ => throw new System.Exception($"Case not handled for owner {this.m_item.m_owner}")
+            };
+            sourceBag.RemoveFromInternalDictionary(this.m_item.m_name);
             Destroy(this.gameObject);
         }
     }
