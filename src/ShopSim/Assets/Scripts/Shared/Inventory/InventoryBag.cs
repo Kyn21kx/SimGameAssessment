@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Assertions;
 using System.Linq;
+using TMPro;
+using UnityEngine.Events;
 
 public class InventoryBag : MonoBehaviour
 {
@@ -26,6 +28,9 @@ public class InventoryBag : MonoBehaviour
 
     [SerializeField]
     private bool m_fillRandomly;
+
+    [SerializeField]
+    private UnityEvent<InventoryBag, InventoryItem> m_onClickCallback;
 
     private int m_lineIndex = 0;
 
@@ -60,6 +65,7 @@ public class InventoryBag : MonoBehaviour
         //Instantiate the prefab for the next item
         InventorySlotUI slot = Instantiate(this.m_slotPrefab, this.m_slotParent.transform);
         slot.Item = item;
+        slot.OnClickCallback = this.m_onClickCallback;
         //Get the next available panel position and place the item there
         int currPositionIndex = (this.m_items.Count - 1) % 9;
 
@@ -70,6 +76,12 @@ public class InventoryBag : MonoBehaviour
         }
         Vector3 targetPosition = new Vector2(currPositionIndex * SLOT_SPACING_X, (this.m_lineIndex - 1) * SLOT_SPACING_Y);
         slot.RectTransform.position += targetPosition;
+    }
+
+    public void RemoveOneFromInventory(string itemName)
+    {
+        InventoryItem item = this.GetFromInventoryOrDefault(itemName);
+        item.m_count--;
     }
 
     public InventoryItem GetFromInventoryOrDefault(string itemName)
@@ -115,7 +127,7 @@ public class InventoryBag : MonoBehaviour
             .Select(sprite => new InventoryItem
             {
                 m_icon = sprite,
-                m_count = Random.Range(1, 65),
+                m_count = Random.Range(1, 11),
                 m_name = sprite.name.Replace(CLOTHING_PREFIX, string.Empty),
                 m_price = Random.Range(100, 1001),
                 m_type = ItemType.Outfit,

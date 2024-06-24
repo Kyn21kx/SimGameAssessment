@@ -20,6 +20,40 @@ public class PlayerInventoryController : MonoBehaviour
         }
     }
 
+    private void OnSlotClickCallback(InventoryBag source, InventoryItem item)
+    {
+        //Get the state from the shopkeeper's controller if it's available
+        ShopkeeperInteractions shopRef = EntityFetcher.s_ShopInteractionsRef;
+        if (shopRef == null || shopRef.ShopState == ShopState.None)
+        {
+            //Default to player behaviour
+            return;
+        }
+
+        switch (shopRef.ShopState)
+        {
+            case ShopState.PlayerBuying:
+                break;
+            case ShopState.PlayerSelling:
+                break;
+        }
+    }
+
+    public void EquipOutfit()
+    {
+
+    }
+
+    public bool TryBuyItem()
+    {
+        return false;
+    }
+
+    public bool TrySellItem()
+    {
+        return false;
+    }
+
     private void InventoryToggleVisible()
     {
         if (!this.m_inventory.IsShown)

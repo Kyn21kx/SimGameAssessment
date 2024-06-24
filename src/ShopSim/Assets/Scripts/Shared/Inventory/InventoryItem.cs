@@ -31,4 +31,19 @@ public class InventoryItem
     public ItemType m_type;
 
     public ItemOwner m_owner;
+
+    public InventoryItem()
+    {
+
+    }
+
+    //Hacky solution, but it will work, FIXME if time allows
+    public InventoryItem(InventoryItem other)
+    {
+        this.m_name = other.m_name;
+        this.m_icon = other.m_icon;
+        this.m_count = other.m_count;
+        this.m_type = other.m_type;
+        this.m_owner = other.m_owner;
+    }
 }
