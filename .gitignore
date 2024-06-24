@@ -5,6 +5,7 @@ src/*/[Ll]ogs/
 src/*/[Oo]bj/
 src/*/[Tt]emp/
 src/*/[Uu]ser[Ss]ettings/
+[Bb]uild/
 # Visual Studio Code specific files
 .vscode/
 
