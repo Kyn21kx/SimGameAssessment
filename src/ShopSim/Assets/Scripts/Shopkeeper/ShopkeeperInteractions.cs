@@ -59,10 +59,12 @@ public class ShopkeeperInteractions : MonoBehaviour
         //The transaction was succesful
         this.m_uiMessenger.SetText($"Bought {item.m_name} for ${item.m_price}!", Color.green);
 
-        //Otherwise, transfer ownership to the player's inventory
+        //Transfer ownership to the player's inventory
         InventoryItem playerOwnedItem = new InventoryItem(item);
         playerOwnedItem.m_owner = ItemOwner.Player;
         playerOwnedItem.m_count = 1;
+        //Never keep the price the same as we bought it for
+        playerOwnedItem.m_price = Mathf.FloorToInt(playerOwnedItem.m_price * 0.8f);
         EntityFetcher.s_PlayerInventoryBag.AddToInventory(playerOwnedItem);
 
         //Update the money

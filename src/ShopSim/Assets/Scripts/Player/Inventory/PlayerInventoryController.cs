@@ -1,13 +1,11 @@
-using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(InventoryBag))]
 [RequireComponent(typeof(MovementController))]
 public class PlayerInventoryController : MonoBehaviour
 {
-    private const string MATERIAL_ASSET_PATH = "Assets/ThirdParty/Cainos/Customizable Pixel Character/Material/Cloth/";
+    private const string MATERIAL_ASSET_PATH = "Material/Cloth/";
     private const string MATERIAL_CLOTHING_PREFIX = "MT Pixel Character - Cloth - ";
-    private const string MAT_EXTENSION = ".mat";
 
     private InventoryBag m_inventory;
 
@@ -44,14 +42,8 @@ public class PlayerInventoryController : MonoBehaviour
             this.EquipOutfit(item);
             return;
         }
-
-        switch (shopRef.ShopState)
-        {
-            case ShopState.PlayerBuying:
-                break;
-            case ShopState.PlayerSelling:
-                break;
-        }
+        if (shopRef.ShopState != ShopState.PlayerSelling) return; //Not our responsibility
+        this.SellItem(item);
     }
 
     public void EquipOutfit(InventoryItem item)
@@ -63,8 +55,8 @@ public class PlayerInventoryController : MonoBehaviour
             return;
         }
         //Find the material on the cloth asset
-        string pathToFind = MATERIAL_ASSET_PATH + MATERIAL_CLOTHING_PREFIX + item.m_name + MAT_EXTENSION;
-        var mat = AssetDatabase.LoadAssetAtPath<Material>(pathToFind);
+        string pathToFind = MATERIAL_ASSET_PATH + MATERIAL_CLOTHING_PREFIX + item.m_name;
+        var mat = Resources.Load<Material>(pathToFind);
 
         //Change the renderer's material
         this.m_clothRenderer.material = mat;
@@ -73,9 +65,22 @@ public class PlayerInventoryController : MonoBehaviour
         this.m_equippedItemName = item.m_name;
     }
 
-    public bool TrySellItem()
+    public void SellItem(InventoryItem item)
     {
-        return false;
+        //The transaction was succesful
+        this.m_uiMessenger.SetText($"Sold {item.m_name} for ${item.m_price}!", Color.green);
+
+        //Transfer ownership to the player's inventory
+        InventoryItem shopKeeperOwnedItem = new InventoryItem(item);
+        shopKeeperOwnedItem.m_owner = ItemOwner.Player;
+        shopKeeperOwnedItem.m_count = 1;
+        EntityFetcher.s_ShopKeeperInventoryBag.AddToInventory(shopKeeperOwnedItem);
+
+        //Update the money
+        ScoringManager.s_Money += item.m_price;
+
+        //Reduce its count on the player side
+        item.m_count--;
     }
 
     private void InventoryToggleVisible()

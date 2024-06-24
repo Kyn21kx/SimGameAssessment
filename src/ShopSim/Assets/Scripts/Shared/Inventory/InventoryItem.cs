@@ -45,5 +45,6 @@ public class InventoryItem
         this.m_count = other.m_count;
         this.m_type = other.m_type;
         this.m_owner = other.m_owner;
+        this.m_price = other.m_price;
     }
 }
